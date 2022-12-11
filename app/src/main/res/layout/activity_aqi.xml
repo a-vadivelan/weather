@@ -3,84 +3,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<TableLayout android:layout_width="match_parent"
+<TableLayout
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp"
-    tools:context=".MainActivity">
-    <TableRow>
-        <TextView android:id="@+id/location"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/loading"/>
-        <ImageView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/refresh_btn"
-            android:id="@+id/refresh_btn"
-            android:contentDescription="Refresh" />
-        <ImageView android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/more_vert"
-            android:id="@+id/more_btn"
-            android:contentDescription="Refresh" />
-    </TableRow>
-    <TableRow>
+    tools:context=".aqiActivity">
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp">
         <TextView android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:id="@+id/lastUpdate"
-            android:text="Last update" />
+            android:textSize="80sp"
+            android:gravity="center_horizontal"
+            android:id="@+id/aqiLevel"
+            android:text="@string/loading" />
     </TableRow>
-    <TableRow>
-        <LinearLayout android:layout_height="wrap_content"
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+        <TextView android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <!--<TextView android:id="@+id/minMax"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Max: 0℉/Min: 0℉"/>-->
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/mainTemp"
-                android:text="@string/loading"
-                android:textSize="60sp"/>
-            <TextView android:id="@+id/feelsLike"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/loading"/>
-        </LinearLayout>
-        <LinearLayout android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon"
-                android:id="@+id/weatherIcon"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/mainCondition"
-                android:scrollHorizontally="false"
-                android:ellipsize="none"
-                android:text="@string/loading"
-                android:textSize="20sp"
-                android:layout_marginBottom="30dp"/>
-        </LinearLayout>
-    </TableRow><!--humidity,pressure,sun rise, sun set, visibility, wind-->
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:id="@+id/aqiCondition"
+            android:text="@string/loading" />
+    </TableRow>
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+        <TextView android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/aqi"
+            android:layout_marginBottom="30dp" />
+    </TableRow>
     <TableRow>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/humidity"
+            android:id="@+id/pmTen"
             android:gravity="center_horizontal"
             android:text="@string/loading"
             android:textSize="30sp"/>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/pressure"
+            android:id="@+id/pmTwoFive"
             android:gravity="center_horizontal"
             android:text="@string/loading"
             android:textSize="30sp"/>
@@ -89,38 +57,28 @@
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/humidity"
+            android:text="@string/pm10"
             android:gravity="center_horizontal"
             android:layout_marginBottom="20dp"/>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="@string/pressure"
+            android:text="@string/pm2_5"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginBottom="20dp"/>
     </TableRow>
     <TableRow>
-        <LinearLayout android:layout_height="wrap_content"
-            android:layout_width="0dp"
+        <TextView android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/no"
+            android:gravity="center_horizontal"
             android:layout_weight="1"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal">
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/wind_arrow"
-                android:id="@+id/windArrow"/>
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/wind"
-                android:gravity="center_horizontal"
-                android:text="@string/loading"
-                android:textSize="20sp"/>
-        </LinearLayout>
+            android:text="@string/loading"
+            android:textSize="30sp"/>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/visibility"
+            android:id="@+id/noTwo"
             android:gravity="center_horizontal"
             android:text="@string/loading"
             android:textSize="30sp"/>
@@ -128,13 +86,13 @@
     <TableRow>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="@string/wind"
+            android:text="@string/no"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginBottom="20dp"/>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="@string/visibility"
+            android:text="@string/no2"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginBottom="20dp"/>
@@ -143,14 +101,14 @@
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/sunrise"
+            android:id="@+id/oThree"
             android:gravity="center_horizontal"
             android:text="@string/loading"
             android:textSize="30sp"/>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/sunset"
+            android:id="@+id/co"
             android:gravity="center_horizontal"
             android:text="@string/loading"
             android:textSize="30sp"/>
@@ -158,13 +116,13 @@
     <TableRow>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="@string/sunrise"
+            android:text="@string/o3"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginBottom="20dp"/>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="@string/sunset"
+            android:text="@string/co"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginBottom="20dp"/>
@@ -173,14 +131,14 @@
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/cloud"
+            android:id="@+id/soTwo"
             android:gravity="center_horizontal"
             android:text="@string/loading"
             android:textSize="30sp"/>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/aqi"
+            android:id="@+id/nhThree"
             android:gravity="center_horizontal"
             android:text="@string/loading"
             android:textSize="30sp"/>
@@ -188,14 +146,21 @@
     <TableRow>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="@string/cloud_cover"
+            android:text="@string/so2"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal" />
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="@string/aqi"
+            android:text="@string/nh3"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"/>
+    </TableRow>
+    <TableRow
+        android:gravity="center_horizontal">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="All measurements are in µm/g³"/>
     </TableRow>
 </TableLayout>
 </ScrollView>
