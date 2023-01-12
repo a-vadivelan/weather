@@ -5,11 +5,15 @@
       <map>
         <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
         <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/layout/activity_aqi.xml" value="0.22" />
-        <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/layout/activity_detailed.xml" value="0.19739583333333333" />
+        <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
         <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/layout/detailed_layout.xml" value="0.19739583333333333" />
         <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/layout/nav_header_main.xml" value="0.14221014492753623" />
+        <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/layout/settings_activity.xml" value="0.14221014492753623" />
         <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/menu/menu_items.xml" value="0.19739583333333333" />
+        <entry key="..\:/Removable disk/Vadivelan/Files/Project/Weather/app/src/main/res/xml/root_preferences.xml" value="0.14221014492753623" />
       </map>
     </option>
   </component>

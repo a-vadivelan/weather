@@ -2,10 +2,8 @@ package com.vadivelan.weather;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Looper;
-import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -42,18 +40,17 @@ public class Location{
 	public void getLastLocation(){
 		Log.d("Location","Get Last Location");
 		if(mainActivity.checkPermissions()){
-			Log.d("Location","Permission Checked");
+			Log.d("Location","Location permission provided");
 			if(isLocationEnabled()){
 				Log.d("Location","Location enabled");
-						requestNewLocationData();
+				mainActivity.updating.show();
+				requestNewLocationData();
 			} else {
-				Toast.makeText(mainActivity,"Please turn on location",Toast.LENGTH_LONG).show();
-				mainActivity.startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+				mainActivity.alert.show();
+				Toast.makeText(mainActivity,"After enabling Location service, press Refresh button to work",Toast.LENGTH_LONG).show();
 			}
 		} else {
-			Log.d("Location","Request permission");
-			mainActivity.alert.dismiss();
-			Toast.makeText(mainActivity,"The app only work if grant location permission",Toast.LENGTH_LONG).show();
+			Log.d("Location","Location permission not provided");
 		}
 	}
 	@SuppressLint("MissingPermission")
@@ -88,6 +85,7 @@ public class Location{
 		String baseUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&units=" + MainActivity.unit + "&appid=4bf8e2f9b6b7f274a0597dc337a62449";
 		Log.d("Location unit var",MainActivity.unit);
 		String pollutionUrl = "http://api.openweathermap.org/data/2.5/air_pollution?lat=" + latitude + "&lon=" + longitude + "&appid=4bf8e2f9b6b7f274a0597dc337a62449";
+		String listUrl = "http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&units=" + MainActivity.unit + "&appid=4bf8e2f9b6b7f274a0597dc337a62449";
 		Toast.makeText(mainActivity, String.format("Latitude: %s\nLongitude: %s", latitude, longitude), Toast.LENGTH_LONG).show();
 		rp = new RequestParams();
 		jsonHttpResponseHandler = new JsonHttpResponseHandler() {
@@ -96,13 +94,15 @@ public class Location{
 				try {
 				JSONObject serverResponse = new JSONObject(response.toString());
 				if(serverResponse.has("weather"))
-					mainActivity.displayData(response);
+					mainActivity.displayData(response.toString());
+				if(serverResponse.has("city"))
+					mainActivity.listData(response.toString());
 				else
-					mainActivity.aqiData(response);
+					mainActivity.aqiData(response.toString());
 				} catch (Exception e){
 					e.printStackTrace();
 				}
-				Log.d("Testing", "Response:\n" + response);
+				Log.d("Testing", "Response:\n" + response.toString());
 			}
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
@@ -113,6 +113,7 @@ public class Location{
 		};
 		HttpUtils.getByUrl(baseUrl, rp, jsonHttpResponseHandler);
 		HttpUtils.getByUrl(pollutionUrl, rp, jsonHttpResponseHandler);
-		mainActivity.alert.dismiss();
+		HttpUtils.getByUrl(listUrl, rp, jsonHttpResponseHandler);
+		mainActivity.updating.dismiss();
 	}
 }

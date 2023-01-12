@@ -17,9 +17,6 @@
     <string name="moderate">Moderate</string>
     <string name="poor">Poor</string>
     <string name="very_poor">Very Poor</string>
-    <string name="excellent">Excellent</string>
-    <string name="severe">Severe</string>
-    <string name="hazard">Hazardous</string>
     <string name="pm10">PM₁₀</string>
     <string name="pm2_5">PM₂.₅</string>
     <string name="no">NO</string>
@@ -28,5 +25,8 @@
     <string name="co">CO</string>
     <string name="so2">SO₂</string>
     <string name="nh3">NH₃</string>
-    <string name="satisfactory">Satisfactory</string>
+    <string name="next24hours">Next 24 Hours</string>
+    <string name="more_details"><u>More Details</u></string>
+    <string name="next5days">Next 5 Days</string>
+    <string name="air_quality_index">Air Quality Index</string>
 </resources>

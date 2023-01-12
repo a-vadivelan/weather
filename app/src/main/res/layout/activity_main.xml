@@ -2,10 +2,11 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/background">
 <TableLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp"
+    android:layout_margin="20dp"
     tools:context=".MainActivity">
     <TableRow>
         <TextView android:id="@+id/location"
@@ -36,6 +37,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
             <!--<TextView android:id="@+id/minMax"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Max: 0℉/Min: 0℉"/>-->
@@ -196,6 +198,185 @@
             android:text="@string/aqi"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:layout_width="0dp"
+            android:text="@string/next24hours"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"/>
+        <TextView android:layout_width="wrap_content"
+            android:text="@string/more_details"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/moreDetails"/>
+    </TableRow>
+    <TableRow>
+        <HorizontalScrollView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="0dp">
+            <LinearLayout android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal">
+                    <LinearLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/time1"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/icon1">
+                        </ImageView>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/temp1"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/time2"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/icon2">
+                        </ImageView>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/temp2"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/time3"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/icon3">
+                        </ImageView>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/temp3"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/time4"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/icon4">
+                        </ImageView>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/temp4"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/time5"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/icon5">
+                        </ImageView>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/temp5"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/time6"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/icon6">
+                        </ImageView>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/temp6"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/time7"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/icon7">
+                        </ImageView>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/temp7"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/time8"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/icon8">
+                        </ImageView>
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/temp8"
+                            android:layout_gravity="center_horizontal">
+                        </TextView>
+                    </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
     </TableRow>
 </TableLayout>
 </ScrollView>

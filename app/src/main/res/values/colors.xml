@@ -7,10 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="excellent">#13db9c</color>
+    <color name="good">#13db9c</color>
     <color name="fair">#f2c21f</color>
-    <color name="poor">#eb8451</color>
-    <color name="unhealthy">#e63258</color>
-    <color name="very_unhealthy">#b5399e</color>
-    <color name="dangerous">#903ae1</color>
+    <color name="moderate">#eb8451</color>
+    <color name="poor">#e63258</color>
+    <color name="very_poor">#b5399e</color>
 </resources>
