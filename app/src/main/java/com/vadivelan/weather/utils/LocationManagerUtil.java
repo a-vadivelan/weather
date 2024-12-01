@@ -10,7 +10,7 @@ import com.google.android.gms.location.*;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.vadivelan.weather.MainActivity;
 
-public class Location {
+public class LocationManagerUtil {
     private static final String LOCATION_TAG = "LocationManagerUtil";
     private static final int LOCATION_UPDATE_INTERVAL = 3600000; // 1 hour
     private final FusedLocationProviderClient locationClient;
@@ -38,28 +38,29 @@ public class Location {
     }
 
     public void startLocationUpdates() {
-        if (mainActivity.checkPermissions()) {
-            if (isLocationEnabled()) {
-                requestNewLocationData();
-            } else {
-                showLocationError();
-            }
+        if (!mainActivity.checkPermissions()) {
+            Log.w(LOCATION_TAG, "Location permissions not granted");
+            return;
+        }
+
+        if (isLocationEnabled()) {
+            fetchCurrentLocation();
         } else {
-            Log.d(LOCATION_TAG, "Location permissions not granted");
+            displayErrorSnackbar();
         }
     }
 
-    private void showLocationError() {
-        mainActivity.showSnackbar("Location not enabled",BaseTransientBottomBar.LENGTH_LONG);
+    private void displayErrorSnackbar() {
+        mainActivity.showSnackbar("Location not enabled", BaseTransientBottomBar.LENGTH_LONG);
     }
 
     @SuppressLint("MissingPermission")
-    private void requestNewLocationData() {
+    private void fetchCurrentLocation() {
         mainActivity.showSnackbar("Fetching Location...", BaseTransientBottomBar.LENGTH_INDEFINITE);
-        LocationRequest locationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,LOCATION_UPDATE_INTERVAL)
-                .setMaxUpdates(1).build();
+        LocationRequest locationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,
+                LOCATION_UPDATE_INTERVAL).setMaxUpdates(1).build();
 
-        fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper());
+        locationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper());
     }
 
     private boolean isLocationEnabled() {

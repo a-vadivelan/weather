@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.vadivelan.weather.adapter.DetailedAdapter;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

@@ -1,4 +1,4 @@
-package com.vadivelan.weather;
+package com.vadivelan.weather.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,12 +8,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.vadivelan.weather.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Date;
 
+import static com.vadivelan.weather.MainActivity.units;
 import static com.vadivelan.weather.utils.WeatherDataManager.timeOnlyFormat;
 
 public class SmallWeatherAdapter extends RecyclerView.Adapter<SmallWeatherAdapter.WeatherViewHolder> {
@@ -49,8 +51,6 @@ public class SmallWeatherAdapter extends RecyclerView.Adapter<SmallWeatherAdapte
                             "i" + new JSONArray(weatherData.getJSONObject(position).getString("weather")).getJSONObject(0)
                                     .getString("icon"),
                             "drawable",context.getPackageName()));
-            // Load icon using a library like Glide or Picasso (placeholder code)
-//             Glide.with(context).load(iconUrl).into(holder.iconImageView);
         } catch (JSONException e) {
             e.printStackTrace();
         }

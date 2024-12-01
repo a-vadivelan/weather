@@ -182,7 +182,7 @@
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:id="@+id/aqi"
+            android:id="@+id/aqiCondition"
             android:gravity="center_horizontal"
             android:text="@string/loading"
             android:textSize="30sp"/>
@@ -190,11 +190,13 @@
     <TableRow>
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/clouds"
             android:text="@string/cloud_cover"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal" />
         <TextView android:layout_width="0dp"
             android:layout_weight="1"
+            android:id="@+id/aqi"
             android:text="@string/aqi"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"/>
@@ -216,167 +218,12 @@
             android:id="@+id/moreDetails"/>
     </TableRow>
     <TableRow>
-        <HorizontalScrollView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_margin="0dp">
-            <LinearLayout android:layout_height="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/weatherRecyclerView"
                 android:layout_width="wrap_content"
-                android:orientation="horizontal">
-                    <LinearLayout android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/time1"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/icon1">
-                        </ImageView>
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/temp1"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/time2"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/icon2">
-                        </ImageView>
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/temp2"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/time3"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/icon3">
-                        </ImageView>
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/temp3"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/time4"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/icon4">
-                        </ImageView>
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/temp4"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/time5"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/icon5">
-                        </ImageView>
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/temp5"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/time6"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/icon6">
-                        </ImageView>
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/temp6"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/time7"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/icon7">
-                        </ImageView>
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/temp7"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                    </LinearLayout>
-                    <LinearLayout android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/time8"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/icon8">
-                        </ImageView>
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/temp8"
-                            android:layout_gravity="center_horizontal">
-                        </TextView>
-                    </LinearLayout>
-            </LinearLayout>
-        </HorizontalScrollView>
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:orientation="horizontal" />
     </TableRow>
 </TableLayout>
 </ScrollView>

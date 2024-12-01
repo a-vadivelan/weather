@@ -1,4 +1,4 @@
-package com.vadivelan.weather;
+package com.vadivelan.weather.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.vadivelan.weather.DataClass;
+import com.vadivelan.weather.R;
 
 import java.util.List;
 import java.util.Locale;

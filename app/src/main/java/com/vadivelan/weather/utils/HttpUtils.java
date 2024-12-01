@@ -1,4 +1,4 @@
-package com.vadivelan.weather;
+package com.vadivelan.weather.utils;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -13,6 +13,7 @@ public class HttpUtils {
 		client.post(getAbsoluteUrl(url),params,responseHandler);
 	}*/
 	public static void getByUrl(String url, RequestParams params, AsyncHttpResponseHandler responseHandler){
+		client.setTimeout(30000);
 		client.get(url,params,responseHandler);
 	}
 	/*8public static void postByUrl(String url, RequestParams params, AsyncHttpResponseHandler responseHandler){
